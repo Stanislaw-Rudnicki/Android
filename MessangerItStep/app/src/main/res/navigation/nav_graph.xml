@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/splashView">
+
+    <fragment
+        android:id="@+id/splashView"
+        android:name="ua.leyter.messengeritstep.screens.splash.SplashView"
+        android:label="fragment_splash_view"
+        tools:layout="@layout/fragment_splash_view" >
+        <action
+            android:id="@+id/action_splashView_to_loginView"
+            app:destination="@id/loginView"
+            app:popUpTo="@id/splashView"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginView"
+        android:name="ua.leyter.messengeritstep.screens.login.LoginView"
+        android:label="fragment_login_view"
+        tools:layout="@layout/fragment_login_view" >
+        <action
+            android:id="@+id/action_loginView_to_registerView"
+            app:destination="@id/registerView" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerView"
+        android:name="ua.leyter.messengeritstep.screens.register.RegisterView"
+        android:label="fragment_register_view"
+        tools:layout="@layout/fragment_register_view" >
+        <action
+            android:id="@+id/action_registerView_to_loginView"
+            app:destination="@id/loginView" />
+        <action
+            android:id="@+id/action_registerView_to_confirmView"
+            app:destination="@id/confirmView" />
+    </fragment>
+    <fragment
+        android:id="@+id/confirmView"
+        android:name="ua.leyter.messengeritstep.screens.confirm.ConfirmView"
+        android:label="fragment_confirm_view"
+        tools:layout="@layout/fragment_confirm_view">
+        <action
+            android:id="@+id/action_confirmView_to_chatsView"
+            app:destination="@id/chatsView" />
+    </fragment>
+    <fragment
+        android:id="@+id/chatsView"
+        android:name="ua.leyter.messengeritstep.screens.chats.ChatsView"
+        android:label="ChatsView"
+        tools:layout="@layout/fragment_chats_view" >
+        <action
+            android:id="@+id/action_chatsView_to_chatView"
+            app:destination="@id/chatView" />
+        <action
+            android:id="@+id/action_chatsView_to_settingsView"
+            app:destination="@id/settingsView" />
+    </fragment>
+    <fragment
+        android:id="@+id/chatView"
+        android:name="ua.leyter.messengeritstep.screens.chat.ChatView"
+        android:label="ChatView"
+        tools:layout="@layout/fragment_one_chat_view" >
+        <argument
+            android:name="UserName"
+            app:argType="string"
+            android:defaultValue="User Name 01" />
+        <argument
+            android:name="UserImage"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/settingsView"
+        android:name="ua.leyter.messengeritstep.screens.settings.SettingsView"
+        android:label="SettingsView"
+        tools:layout="@layout/fragment_settings_view" />
+</navigation>
